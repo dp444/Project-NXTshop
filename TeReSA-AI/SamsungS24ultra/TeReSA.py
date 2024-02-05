@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -52,30 +50,25 @@ def user_input(user_question, pdf_reader):
 def main():
     st.set_page_config("TeReSA AI")
 
+    st.title("TeReSA AI")
     user_question = st.text_input("Query About product")
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
     if "chatHistory" not in st.session_state:
         st.session_state.chatHistory = None
 
-    col1, col2 = st.columns([1, 2])
-    with col1:
-        st.title("TeReSA.")
-        st.write("~Your Personal Shopping Assistant.~")
-    pdf_reader = PdfReader('TeReSA-AI/SamsungS24ultra/data1.pdf')
+    pdf_reader = PdfReader("data1.pdf")
 
     raw_text = get_pdf_text(pdf_reader)
     text_chunks = get_text_chunks(raw_text)
     vector_store = get_vector_store(text_chunks)
     st.session_state.conversation = get_conversational_chain(vector_store)
-    st.success("AI initiated!!! Begin Query... ")
+  
 
     if user_question:
         user_input(user_question, pdf_reader)
 
 if __name__ == "__main__":
     main()
-
-
 
 
