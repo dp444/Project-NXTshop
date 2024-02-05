@@ -62,7 +62,7 @@ def main():
     with col1:
         st.title("TeReSA.")
         st.write("~Your Personal Shopping Assistant.~")
-    pdf_reader = PdfReader("data1.pdf")
+    pdf_reader = PdfReader('TeReSA-AI/SamsungS24ultra/data1.pdf')
 
     raw_text = get_pdf_text(pdf_reader)
     text_chunks = get_text_chunks(raw_text)
