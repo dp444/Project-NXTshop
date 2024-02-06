@@ -1,22 +1,28 @@
-let isCollapsed = false;
+let isDragging = false;
+let offsetX, offsetY;
 
-function toggleContainer() {
-    const container = document.getElementById('resizable-container');
-    const iframe = document.getElementById('iframe');
-    isCollapsed = !isCollapsed;
+const container = document.getElementById('draggable-container');
 
-    if (isCollapsed) {
-        container.style.width = '50px';
-        container.style.height = '50px';
-        iframe.style.display = 'none';
-    } else {
-        container.style.width = '400px';
-        container.style.height = '200px';
-        iframe.style.display = 'block';
-    }
-}
-
-$(function() {
-    $("#resizable-container").draggable();
+container.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.clientX - container.getBoundingClientRect().left;
+    offsetY = e.clientY - container.getBoundingClientRect().top;
+    container.style.cursor = 'grabbing';
 });
+
+document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    const x = e.clientX - offsetX;
+    const y = e.clientY - offsetY;
+
+    container.style.left = x + 'px';
+    container.style.top = y + 'px';
+});
+
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+    container.style.cursor = 'grab';
+});
+
 
