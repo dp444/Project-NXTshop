@@ -59,7 +59,7 @@ def main():
     if "chatHistory" not in st.session_state:
         st.session_state.chatHistory = None
 
-    pdf_reader = PdfReader("TeReSA-AI/MacBook Air M2/applemackbbokairm2data.pdf")
+    pdf_reader = PdfReader("TeReSA-AI/Macbookairm2/applemackbbokairm2data.pdf")
 
     raw_text = get_pdf_text(pdf_reader)
     text_chunks = get_text_chunks(raw_text)
