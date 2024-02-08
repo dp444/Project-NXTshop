@@ -6,7 +6,7 @@ const container1 = document.getElementById('draggable-container');
 container1.addEventListener('mousedown', (e) => {
     isDragging = true;
     offsetX = e.clientX - container1.getBoundingClientRect().left;
-    offsetY = e.clientY - containe1r.getBoundingClientRect().top;
+    offsetY = e.clientY - container1.getBoundingClientRect().top;
     container1.style.cursor = 'grabbing';
 });
 
