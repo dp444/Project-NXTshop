@@ -7,7 +7,7 @@ container.addEventListener('mousedown', (e) => {
     isDragging = true;
     offsetX = e.clientX - container.getBoundingClientRect().left;
     offsetY = e.clientY - container.getBoundingClientRect().top;
-    container1.style.cursor = 'grabbing';
+    container.style.cursor = 'grabbing';
 });
 
 document.addEventListener('mousemove', (e) => {
@@ -24,5 +24,6 @@ document.addEventListener('mouseup', () => {
     isDragging = false;
     container.style.cursor = 'grab';
 });
+
 
 
