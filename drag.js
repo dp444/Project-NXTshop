@@ -1,12 +1,12 @@
 let isDragging = false;
 let offsetX, offsetY;
 
-const container1 = document.getElementById('draggable-container');
+const container = document.getElementById('draggable-container');
 
-container1.addEventListener('mousedown', (e) => {
+container.addEventListener('mousedown', (e) => {
     isDragging = true;
-    offsetX = e.clientX - container1.getBoundingClientRect().left;
-    offsetY = e.clientY - container1.getBoundingClientRect().top;
+    offsetX = e.clientX - container.getBoundingClientRect().left;
+    offsetY = e.clientY - container.getBoundingClientRect().top;
     container1.style.cursor = 'grabbing';
 });
 
@@ -16,13 +16,13 @@ document.addEventListener('mousemove', (e) => {
     const x = e.clientX - offsetX;
     const y = e.clientY - offsetY;
 
-    container1.style.left = x + 'px';
-    container1.style.top = y + 'px';
+    container.style.left = x + 'px';
+    container.style.top = y + 'px';
 });
 
 document.addEventListener('mouseup', () => {
     isDragging = false;
-    container1.style.cursor = 'grab';
+    container.style.cursor = 'grab';
 });
 
 
