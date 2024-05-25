@@ -43,7 +43,7 @@ def user_input(user_question, pdf_reader):
         if i % 2 == 0:
             st.write("You: ", message.content)
         else:
-            st.write("TeReSA AI: ", message.content)
+            st.write("🤖: ", message.content)
             tts = gTTS(message.content, lang='en')
             sound_file = BytesIO()
             tts.write_to_fp(sound_file)
@@ -52,7 +52,7 @@ def user_input(user_question, pdf_reader):
 def main():
     st.set_page_config("TeReSA AI")
 
-    st.title("TeReSA AI")
+    st.title("TeReSA AI🤖")
     user_question = st.text_input("Query About product")
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
