@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -12,145 +12,183 @@
     <link rel="stylesheet" href="templatemo-hexashop.css">
     <link rel="stylesheet" href="owl-carousel.css">
     <link rel="stylesheet" href="lightbox.css">
-    
     <link rel="stylesheet" href="styles.css">
-    </head>
-    
-    <body>
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-              
-                        <a href="index.html" class="logo">
-                            <img src="logo.png">
-                        </a>
-      
-                        <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="products.html">Mobiles</a></li>
-                            <li class="scroll-to-section"><a href="products.html">Laptops  </a></li>
-                            <li class="scroll-to-section"><a href="products.html">Appliances &  Accessories</a></li>
-                            <li class="submenu">
-                                <a href="javascript:;">Pages</a>
-                                <ul>
-                                    
-                                    <li><a href="products.html">Products</a></li>
-                                    <li><a href="single-product.html">Samsung S24 Ultra</a></li>
-                                    <li><a href="contact.html">Macbook Air M2</a></li>
-                                </ul>
-                            </li>
-                       
-                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
-                        </ul>        
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                     
-                    </nav>
-                </div>
+    <style>
+        /* Styling for the iframe wrapper */
+        .iframe-wrapper {
+            display: none; /* Initially hidden */
+            position: fixed;
+            bottom: 10px; /* adjust as needed */
+            right: 10px; /* adjust as needed */
+            width: 600px; /* adjust as needed */
+            height: 400px; /* adjust as needed */
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            z-index: 9999;
+        }
+
+        /* Styling for the iframe */
+        .iframe-content {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Styling for the resize handle */
+        .resize-handle {
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: nwse-resize;
+        }
+
+        /* Styling for the activation image */
+        #activateImage {
+            position: fixed;
+            bottom: 10px; /* adjust as needed */
+            right: 10px; /* adjust as needed */
+            width: 100px; /* adjust as needed */
+            height: 100px; /* adjust as needed */
+            cursor: pointer;
+            z-index: 10000; /* Ensure the image is above the iframe */
+        }
+    </style>
+</head>
+<body>
+
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <a href="index.html" class="logo">
+                        <img src="logo.png">
+                    </a>
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="products.html">Mobiles</a></li>
+                        <li class="scroll-to-section"><a href="products.html">Laptops</a></li>
+                        <li class="scroll-to-section"><a href="products.html">Appliances & Accessories</a></li>
+                        <li class="submenu">
+                            <a href="javascript:;">Pages</a>
+                            <ul>
+                                <li><a href="products.html">Products</a></li>
+                                <li><a href="single-product.html">Samsung S24 Ultra</a></li>
+                                <li><a href="contact.html">Macbook Air M2</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                </nav>
             </div>
         </div>
-    </header>
-    <div class="main-banner" id="top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="left-content">
-                        <div class="thumb">
-                            <div class="inner-content">
-                                <h4>We Are NXTSHOP</h4>
-                                <span>An AI enhanced eCommerce experience. </span>
-                                <div class="main-border-button">
-                                    <a href="products.html">Purchase Now!</a>
-                                </div>
+    </div>
+</header>
+
+<div class="main-banner" id="top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="left-content">
+                    <div class="thumb">
+                        <div class="inner-content">
+                            <h4>We Are NXTSHOP</h4>
+                            <span>An AI enhanced eCommerce experience. </span>
+                            <div class="main-border-button">
+                                <a href="products.html">Purchase Now!</a>
                             </div>
-                            <img src="https://th.bing.com/th/id/OIP._GVHzxyTv9pqhID7CuUZ-wHaE8?w=260&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="" height = "570" width = "680">
                         </div>
+                        <img src="https://th.bing.com/th/id/OIP._GVHzxyTv9pqhID7CuUZ-wHaE8?w=260&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="" height="570" width="680">
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="right-content">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="right-first-image">
-                                    <div class="thumb">
-                                        <div class="inner-content">
-                                            <h4>Mobiles</h4>
-                                            <span>Special Offers on smartphones!!!</span>
-                                        </div>
-                                        <div class="hover-content">
-                                            <div class="inner">
-                                                <h4>Smartphones</h4>
-                                                <p>Choose From a Wide Range Of Smartphones & More Mobiles, Available At Great Prices.NXTshop Offers an Array Of Unique Products From Hundreds Of Brands.</p>
-                                                <div class="main-border-button">
-                                                    <a href="products.html">Discover More</a>
-                                                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="right-content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="right-first-image">
+                                <div class="thumb">
+                                    <div class="inner-content">
+                                        <h4>Mobiles</h4>
+                                        <span>Special Offers on smartphones!!!</span>
+                                    </div>
+                                    <div class="hover-content">
+                                        <div class="inner">
+                                            <h4>Smartphones</h4>
+                                            <p>Choose From a Wide Range Of Smartphones & More Mobiles, Available At Great Prices.NXTshop Offers an Array Of Unique Products From Hundreds Of Brands.</p>
+                                            <div class="main-border-button">
+                                                <a href="products.html">Discover More</a>
                                             </div>
                                         </div>
-                                        <img src="https://www.pt-smi.co.id/images/ScreenShot2021-11-11at10.18.27AM.png" height = "270" width = "385">
                                     </div>
+                                    <img src="https://www.pt-smi.co.id/images/ScreenShot2021-11-11at10.18.27AM.png" height="270" width="385">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="right-first-image">
-                                    <div class="thumb">
-                                        <div class="inner-content">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-first-image">
+                                <div class="thumb">
+                                    <div class="inner-content">
+                                        <h4>Laptops</h4>
+                                        <span>Latest Laptops!!</span>
+                                    </div>
+                                    <div class="hover-content">
+                                        <div class="inner">
                                             <h4>Laptops</h4>
-                                            <span>Latest Laptops!!</span>
-                                        </div>
-                                        <div class="hover-content">
-                                            <div class="inner">
-                                                <h4>Laptops</h4>
-                                                <p>Choose from a vast selection of Laptops,accessories & more</p>
-                                                <div class="main-border-button">
-                                                    <a href="products.html">Discover More</a>
-                                                </div>
+                                            <p>Choose from a vast selection of Laptops,accessories & more</p>
+                                            <div class="main-border-button">
+                                                <a href="products.html">Discover More</a>
                                             </div>
                                         </div>
-                                        <img src="https://wallpaperset.com/w/full/7/1/f/476368.jpg" height = "270" width = "385">
                                     </div>
+                                    <img src="https://wallpaperset.com/w/full/7/1/f/476368.jpg" height="270" width="385">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="right-first-image">
-                                    <div class="thumb">
-                                        <div class="inner-content">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-first-image">
+                                <div class="thumb">
+                                    <div class="inner-content">
+                                        <h4>Appliances</h4>
+                                        <span>Festive offers on appliances.</span>
+                                    </div>
+                                    <div class="hover-content">
+                                        <div class="inner">
                                             <h4>Appliances</h4>
-                                            <span>Festive offers on appliances.</span>
-                                        </div>
-                                        <div class="hover-content">
-                                            <div class="inner">
-                                                <h4>Appliances</h4>
-                                                <p>Shop online for a wide range of appliances for your home and kitchen, such as washers, dryers, dishwashers, air conditioners, microwaves, ovens, and more.</p>
-                                                <div class="main-border-button">
-                                                    <a href="products.html">Discover More</a>
-                                                </div>
+                                            <p>Shop online for a wide range of appliances for your home and kitchen, such as washers, dryers, dishwashers, air conditioners, microwaves, ovens, and more.</p>
+                                            <div class="main-border-button">
+                                                <a href="products.html">Discover More</a>
                                             </div>
                                         </div>
-                                        <img src="https://i.pinimg.com/736x/47/68/f3/4768f3da9f2f48ccb9bfdff82c8af2e4--vintage-tv.jpg" height = "270" width = "385">
                                     </div>
+                                    <img src="https://i.pinimg.com/736x/47/68/f3/4768f3da9f2f48ccb9bfdff82c8af2e4--vintage-tv.jpg" height="270" width="385">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="right-first-image">
-                                    <div class="thumb">
-                                        <div class="inner-content">
-                                            <h4>Accessories and  other Electronics</h4>
-                                            <span>Best Accessories and electronics</span>
-                                        </div>
-                                        <div class="hover-content">
-                                            <div class="inner">
-                                                <h4>Accessories</h4>
-                                                <p>Choose From a Wide Range, Available At Great Prices. NXTSHOP Offers an Array Of Unique Products From Hundreds Of Brands.</p>
-                                                <div class="main-border-button">
-                                                    <a href="products.html">Discover More</a>
-                                                </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-first-image">
+                                <div class="thumb">
+                                    <div class="inner-content">
+                                        <h4>Accessories and other Electronics</h4>
+                                        <span>Best Accessories and electronics</span>
+                                    </div>
+                                    <div class="hover-content">
+                                        <div class="inner">
+                                            <h4>Accessories</h4>
+                                            <p>Choose From a Wide Range, Available At Great Prices. NXTSHOP Offers an Array Of Unique Products From Hundreds Of Brands.</p>
+                                            <div class="main-border-button">
+                                                <a href="products.html">Discover More</a>
                                             </div>
                                         </div>
-                                        <img src="https://wallpaperaccess.com/full/1825854.jpg" height = "270" width = "385">
                                     </div>
+                                    <img src="https://wallpaperaccess.com/full/1825854.jpg" height="270" width="385">
                                 </div>
                             </div>
                         </div>
@@ -159,94 +197,143 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="first-item">
-                        <div class="logo">
-                            <img src="white-logo.png" alt="NXtshop">
-                        </div>
-                        <ul>
-                            <li><a href="#">Created with <3 in India</a></li>
-                            <li><a href="#">dhirajpatildp4377@gmail.com</a></li>
-                            <li><a href="#">7304811967</a></li>
-                        </ul>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="first-item">
+                    <div class="logo">
+                        <img src="white-logo.png" alt="NXtshop">
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Shopping &amp; Categories</h4>
-                 <ul>
-                        <li><a href="products.html">Mobiles</a></li>
-                        <li><a href="products.html">Laptops</a></li>
-                        <li><a href="products.html">Appliances & Accessories</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Useful Links</h4>
                     <ul>
-                        <li><a href="#">Homepage</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Created with <3 in India</a></li>
+                        <li><a href="#">dhirajpatildp4377@gmail.com</a></li>
+                        <li><a href="#">7304811967</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3">
-                    <h4>Help &amp; Information</h4>
-                    <ul>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Tracking ID</a></li>
-                    </ul>
-                </div>
-          
+            </div>
+            <div class="col-lg-3">
+                <h4>Shopping &amp; Categories</h4>
+                <ul>
+                    <li><a href="products.html">Mobiles</a></li>
+                    <li><a href="products.html">Laptops</a></li>
+                    <li><a href="products.html">Appliances & Accessories</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="#">Homepage</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h4>Help &amp; Information</h4>
+                <ul>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Tracking ID</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
-    
-    <script src="jquery-2.1.0.min.js"></script>
-    <script src="popper.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <!-- Plugins -->
-    <script src="owl-carousel.js"></script>
-    <script src="accordions.js"></script>
-    <script src="datepicker.js"></script>
-    <script src="scrollreveal.min.js"></script>
-    <script src="waypoints.min.js"></script>
-    <script src="jquery.counterup.min.js"></script>
-    <script src="imgfix.min.js"></script> 
-    <script src="slick.js"></script> 
-    <script src="lightbox.js"></script> 
-    <script src="isotope.js"></script> 
-    <script src="custom.js"></script>
-    <script>
-        $(function() {
-            var selectedClass = "";
-            $("p").click(function(){
+    </div>
+</footer>
+
+<script src="jquery-2.1.0.min.js"></script>
+<script src="popper.js"></script>
+<script src="bootstrap.min.js"></script>
+<!-- Plugins -->
+<script src="owl-carousel.js"></script>
+<script src="accordions.js"></script>
+<script src="datepicker.js"></script>
+<script src="scrollreveal.min.js"></script>
+<script src="waypoints.min.js"></script>
+<script src="jquery.counterup.min.js"></script>
+<script src="imgfix.min.js"></script> 
+<script src="slick.js"></script> 
+<script src="lightbox.js"></script> 
+<script src="isotope.js"></script> 
+<script src="custom.js"></script>
+<script>
+    $(function() {
+        var selectedClass = "";
+        $("p").click(function(){
             selectedClass = $(this).attr("data-rel");
             $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("."+selectedClass).fadeOut();
+            $("#portfolio div").not("."+selectedClass).fadeOut();
             setTimeout(function() {
-              $("."+selectedClass).fadeIn();
-              $("#portfolio").fadeTo(50, 1);
+                $("."+selectedClass).fadeIn();
+                $("#portfolio").fadeTo(50, 1);
             }, 500);
-                
-            });
         });
+    });
 
-    </script>
-<div class="container1" id="draggable-container">
-    <iframe src="https://teresahome.streamlit.app/?embedded=true" frameborder="0"></iframe>
+</script>
+
+<!-- Draggable iFrame Implementation -->
+<div class="iframe-wrapper" id="iframeWrapper">
+    <div class="resize-handle" id="resizeHandle"></div>
+    <iframe class="iframe-content" src="https://teresahome.streamlit.app/?embedded=true"></iframe>
 </div>
-  <script src="drag.js"></script>
 
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-  </body>
+<img src="—Pngtree—smart chatbot cartoon clipart_9015126.png" alt="Activate/Deactivate" id="activateImage">
+
+<script>
+    const activateImage = document.getElementById('activateImage');
+    const iframeWrapper = document.getElementById('iframeWrapper');
+    const resizeHandle = document.getElementById('resizeHandle');
+
+    let isResizing = false;
+
+    activateImage.addEventListener('click', function() {
+        if (iframeWrapper.style.display === 'none') {
+            iframeWrapper.style.display = 'block';
+        } else {
+            iframeWrapper.style.display = 'none';
+        }
+    });
+
+    resizeHandle.addEventListener('mousedown', startResize);
+    document.addEventListener('mouseup', stopResize);
+    document.addEventListener('mousemove', resize);
+
+    function startResize(e) {
+        e.preventDefault();
+        isResizing = true;
+    }
+
+    function stopResize() {
+        isResizing = false;
+    }
+
+    function resize(e) {
+        if (isResizing) {
+            let width = e.clientX - iframeWrapper.getBoundingClientRect().left;
+            let height = e.clientY - iframeWrapper.getBoundingClientRect().top;
+
+            if (width >= 100) {
+                iframeWrapper.style.width = width + 'px';
+            }
+
+            if (height >= 100) {
+                iframeWrapper.style.height = height + 'px';
+            }
+        }
+    }
+</script>
+
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>  
+
+</body>
 </html>
