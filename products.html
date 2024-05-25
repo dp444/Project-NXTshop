@@ -24,6 +24,50 @@
     <link rel="stylesheet" href="lightbox.css">
 
     <link rel="stylesheet" href="styles.css">
+      <style>
+        /* Styling for the iframe wrapper */
+        .iframe-wrapper {
+            display: none; /* Initially hidden */
+            position: fixed;
+            bottom: 10px; /* adjust as needed */
+            right: 10px; /* adjust as needed */
+            width: 600px; /* adjust as needed */
+            height: 400px; /* adjust as needed */
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            z-index: 9999;
+        }
+
+        /* Styling for the iframe */
+        .iframe-content {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Styling for the resize handle */
+        .resize-handle {
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: nwse-resize;
+        }
+
+        /* Styling for the activation image */
+        #activateImage {
+            position: fixed;
+            bottom: 10px; /* adjust as needed */
+            right: 10px; /* adjust as needed */
+            width: 100px; /* adjust as needed */
+            height: 100px; /* adjust as needed */
+            cursor: pointer;
+            z-index: 10000; /* Ensure the image is above the iframe */
+        }
+    </style>
     
     
     </head>
@@ -398,10 +442,57 @@
         });
 
     </script>
-<div class="container1" id="draggable-container">
-    <iframe src="https://allphones.streamlit.app/?embedded=true" frameborder="0"></iframe>
+<!-- Draggable iFrame Implementation -->
+<div class="iframe-wrapper" id="iframeWrapper">
+    <div class="resize-handle" id="resizeHandle"></div>
+    <iframe class="iframe-content" src="https://teresahome.streamlit.app/?embedded=true"></iframe>
 </div>
-  <script src="drag.js"></script>
+
+<img src="—Pngtree—smart chatbot cartoon clipart_9015126.png" alt="Activate/Deactivate" id="activateImage">
+
+<script>
+    const activateImage = document.getElementById('activateImage');
+    const iframeWrapper = document.getElementById('iframeWrapper');
+    const resizeHandle = document.getElementById('resizeHandle');
+
+    let isResizing = false;
+
+    activateImage.addEventListener('click', function() {
+        if (iframeWrapper.style.display === 'none') {
+            iframeWrapper.style.display = 'block';
+        } else {
+            iframeWrapper.style.display = 'none';
+        }
+    });
+
+    resizeHandle.addEventListener('mousedown', startResize);
+    document.addEventListener('mouseup', stopResize);
+    document.addEventListener('mousemove', resize);
+
+    function startResize(e) {
+        e.preventDefault();
+        isResizing = true;
+    }
+
+    function stopResize() {
+        isResizing = false;
+    }
+
+    function resize(e) {
+        if (isResizing) {
+            let width = e.clientX - iframeWrapper.getBoundingClientRect().left;
+            let height = e.clientY - iframeWrapper.getBoundingClientRect().top;
+
+            if (width >= 100) {
+                iframeWrapper.style.width = width + 'px';
+            }
+
+            if (height >= 100) {
+                iframeWrapper.style.height = height + 'px';
+            }
+        }
+    }
+</script>
 
   </body>
 
