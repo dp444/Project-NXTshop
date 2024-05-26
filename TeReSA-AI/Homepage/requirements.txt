@@ -8,4 +8,4 @@ faiss-cpu
 SpeechRecognition 
 gTTS 
 pydub
-python3-pyaudio
+streamlit-mic-recorder
