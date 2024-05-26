@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_mic_recorder import st_mic_recorder
+from streamlit_mic_recorder import speech_to_text
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import GooglePalmEmbeddings
@@ -10,7 +10,6 @@ from langchain.memory import ConversationBufferMemory
 import os
 from gtts import gTTS
 from io import BytesIO
-import speech_recognition as sr
 
 os.environ['GOOGLE_API_KEY'] = 'AIzaSyDeJfgMlMF1TJs_2DRRSn8FKfuUsDxDLWo'
 
@@ -49,23 +48,6 @@ def user_input(user_question, pdf_reader):
             tts.write_to_fp(sound_file)
             st.audio(sound_file, format="audio/mp3")
 
-def recognize_speech_from_audio(audio_data):
-    recognizer = sr.Recognizer()
-    audio = sr.AudioFile(BytesIO(audio_data))
-
-    with audio as source:
-        audio_content = recognizer.record(source)
-
-    try:
-        text = recognizer.recognize_google(audio_content)
-        return text
-    except sr.RequestError:
-        st.write("API unavailable")
-        return None
-    except sr.UnknownValueError:
-        st.write("Unable to recognize speech")
-        return None
-
 def main():
     st.set_page_config("TeReSA AI")
 
@@ -83,17 +65,26 @@ def main():
     vector_store = get_vector_store(text_chunks)
     st.session_state.conversation = get_conversational_chain(vector_store)
 
-    audio_data = st_mic_recorder(label="Use Voice Input")
+    text = speech_to_text(
+        language='en',
+        start_prompt="Start recording",
+        stop_prompt="Stop recording",
+        just_once=False,
+        use_container_width=False,
+        callback=None,
+        args=(),
+        kwargs={},
+        key=None
+    )
 
-    if audio_data is not None:
-        recognized_text = recognize_speech_from_audio(audio_data)
-        if recognized_text:
-            user_question = recognized_text
+    if text:
+        user_question = text
 
     if user_question:
         user_input(user_question, pdf_reader)
 
 if __name__ == "__main__":
     main()
+
 
 
