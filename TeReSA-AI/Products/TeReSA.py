@@ -1,6 +1,5 @@
-
-
 import streamlit as st
+from streamlit_mic_recorder import speech_to_text
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import GooglePalmEmbeddings
@@ -50,7 +49,7 @@ def user_input(user_question, pdf_reader):
             st.audio(sound_file, format="audio/mp3")
 
 def main():
-    st.set_page_config("TeReSA AI")
+    st.set_page_config(page_title="TeReSA AI")
 
     st.title("TeReSA AI🤖")
     user_question = st.text_input("Query About product")
@@ -59,19 +58,35 @@ def main():
     if "chatHistory" not in st.session_state:
         st.session_state.chatHistory = None
 
-    pdf_reader = PdfReader("TeReSA-AI/Products/productsdata.pdf")
+    pdf_reader = PdfReader('TeReSA-AI/Products/productsdata.pdf')
 
     raw_text = get_pdf_text(pdf_reader)
     text_chunks = get_text_chunks(raw_text)
     vector_store = get_vector_store(text_chunks)
     st.session_state.conversation = get_conversational_chain(vector_store)
-  
+
+    text = speech_to_text(
+        language='en',
+        start_prompt="🎤 Click to Speak",
+        stop_prompt="🛑 Listening...",
+        just_once=False,
+        use_container_width=False,
+        callback=None,
+        args=(),
+        kwargs={"timeout": 8},  # Stop listening after 8 seconds of silence
+        key=None
+    )
+
+    if text:
+        user_question = text
 
     if user_question:
         user_input(user_question, pdf_reader)
 
 if __name__ == "__main__":
     main()
+
+
 
 
 
