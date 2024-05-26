@@ -1,4 +1,5 @@
 import streamlit as st
+import speech_recognition as sr
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import GooglePalmEmbeddings
@@ -47,6 +48,26 @@ def user_input(user_question, pdf_reader):
             tts.write_to_fp(sound_file)
             st.audio(sound_file, format="audio/mp3")
 
+def recognize_speech_from_mic():
+    recognizer = sr.Recognizer()
+    microphone = sr.Microphone()
+
+    with microphone as source:
+        st.write("Listening...")
+        audio = recognizer.listen(source)
+
+    try:
+        st.write("Recognizing...")
+        text = recognizer.recognize_google(audio)
+        st.write(f"Recognized Text: {text}")
+        return text
+    except sr.RequestError:
+        st.write("API unavailable")
+        return None
+    except sr.UnknownValueError:
+        st.write("Unable to recognize speech")
+        return None
+
 def main():
     st.set_page_config("TeReSA AI")
 
@@ -64,9 +85,14 @@ def main():
     vector_store = get_vector_store(text_chunks)
     st.session_state.conversation = get_conversational_chain(vector_store)
   
+    if st.button("Use Voice Input"):
+        recognized_text = recognize_speech_from_mic()
+        if recognized_text:
+            user_question = recognized_text
 
     if user_question:
         user_input(user_question, pdf_reader)
 
 if __name__ == "__main__":
     main()
+
