@@ -49,7 +49,7 @@ def user_input(user_question, pdf_reader):
             st.audio(sound_file, format="audio/mp3")
 
 def main():
-    st.set_page_config("TeReSA AI")
+    st.set_page_config(page_title="TeReSA AI")
 
     st.title("TeReSA AI🤖")
     user_question = st.text_input("Query About product")
@@ -67,13 +67,13 @@ def main():
 
     text = speech_to_text(
         language='en',
-        start_prompt="Click to Speak",
-        stop_prompt="Listening...",
+        start_prompt="🎤 Click to Speak",
+        stop_prompt="🛑 Listening...",
         just_once=False,
         use_container_width=False,
         callback=None,
         args=(),
-        kwargs={},
+        kwargs={"timeout": 8},  # Stop listening after 8 seconds of silence
         key=None
     )
 
@@ -85,6 +85,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
