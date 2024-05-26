@@ -67,8 +67,8 @@ def main():
 
     text = speech_to_text(
         language='en',
-        start_prompt="Start recording",
-        stop_prompt="Stop recording",
+        start_prompt="Click to Speak",
+        stop_prompt="Listening...",
         just_once=False,
         use_container_width=False,
         callback=None,
