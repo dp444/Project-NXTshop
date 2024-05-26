@@ -1,5 +1,5 @@
 import streamlit as st
-import speech_recognition as sr
+from streamlit_mic_recorder import st_mic_recorder
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import GooglePalmEmbeddings
@@ -10,6 +10,7 @@ from langchain.memory import ConversationBufferMemory
 import os
 from gtts import gTTS
 from io import BytesIO
+import speech_recognition as sr
 
 os.environ['GOOGLE_API_KEY'] = 'AIzaSyDeJfgMlMF1TJs_2DRRSn8FKfuUsDxDLWo'
 
@@ -48,18 +49,15 @@ def user_input(user_question, pdf_reader):
             tts.write_to_fp(sound_file)
             st.audio(sound_file, format="audio/mp3")
 
-def recognize_speech_from_mic():
+def recognize_speech_from_audio(audio_data):
     recognizer = sr.Recognizer()
-    microphone = sr.Microphone()
+    audio = sr.AudioFile(BytesIO(audio_data))
 
-    with microphone as source:
-        st.write("Listening...")
-        audio = recognizer.listen(source)
+    with audio as source:
+        audio_content = recognizer.record(source)
 
     try:
-        st.write("Recognizing...")
-        text = recognizer.recognize_google(audio)
-        st.write(f"Recognized Text: {text}")
+        text = recognizer.recognize_google(audio_content)
         return text
     except sr.RequestError:
         st.write("API unavailable")
@@ -84,9 +82,11 @@ def main():
     text_chunks = get_text_chunks(raw_text)
     vector_store = get_vector_store(text_chunks)
     st.session_state.conversation = get_conversational_chain(vector_store)
-  
-    if st.button("Use Voice Input"):
-        recognized_text = recognize_speech_from_mic()
+
+    audio_data = st_mic_recorder(label="Use Voice Input")
+
+    if audio_data is not None:
+        recognized_text = recognize_speech_from_audio(audio_data)
         if recognized_text:
             user_question = recognized_text
 
@@ -95,4 +95,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
